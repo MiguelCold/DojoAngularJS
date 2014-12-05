@@ -82,29 +82,23 @@
 				<table class="table table-striped" style="text-align: center;">
 					<thead>
 						<tr>
-							<th style="text-align: center;">ID</th>
 							<th style="text-align: center;">Nombre</th>
-							<th style="text-align: center;">Memoria RAM</th>
-							<th style="text-align: center;">Procesador</th>
-							<th style="text-align: center;">Memoria Interna</th>
-							<th style="text-align: center;">A&ntilde;o</th>
-							<th style="text-align: center;">Precio</th>
+							<th style="text-align: center;">Direcci&oacute;n</th>
+							<th style="text-align: center;">Email</th>
+							<th style="text-align: center;">Tel&eacute;fono</th>
 							<th style="text-align: center;">Imagen</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="device in displayedCollection | filter:searchText">
-							<td>{{device.id}}</td>
-							<td>{{device.name}}</td>
-							<td>{{device.memoryRAM}}</td>
-							<td>{{device.processor}}</td>
-							<td>{{device.internMemory}}</td>
-							<td>{{device.year}}</td>
-							<td>${{device.price}}</td>
+						<tr ng-repeat="store in displayedCollection | filter:searchText">
+							<td>{{store.fullName}}</td>
+							<td>{{store.address}}</td>
+							<td>{{store.electronicMail}}</td>
+							<td>{{store.phoneNumber}}</td>
 							<td><img src="./resources/images/smartphone.jpg" width="40px"
 								height="40px"></img></td>
 							<td><button  class="btn btn-success" type="button"
-									ng-click="removeDevice(device)">
+									ng-click="removeDevice(store)">
 									<span class="glyphicon glyphicon-remove"></span> 
 									Eliminar
 								</button></td>
