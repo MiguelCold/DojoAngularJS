@@ -17,7 +17,7 @@ var years = [2011, 2010, 2014, 2013]
 var prices = [1578793.04, 1150310.59, 1812810.38, 1697449.72, 754788.32]
 
 /// *** URL WEB SERVICE *** ///
-var STORES_WEB_SERVICE = 'http://dojowebserviceexample.herokuapp.com/rest/store';
+var STORES_WEB_SERVICE = 'http://localhost:8080/DojoWebService/rest/store?';
 
 /// *** WEB SERVICES *** ///
 
@@ -33,18 +33,15 @@ angularExampleModule.service('storesWebService', function($http) {
 });
 
 
-
 /// *** CONTROLLERS *** / //
 
 angularExampleModule.controller('deviceListController',
                                                          function($scope, storesWebService, $location) {
-
-	  storesWebService.findAllStores().success( 
+	 /* storesWebService.findAllStores().success( 
 	    		 function(data) {
 	    			 	$scope.rowCollection = data.store;
-	    		 });
-	    $scope.displayedCollection = [].concat($scope.rowCollection);
-	
+	    		 });*/
+		
 	// / ** CREATE RANDOM DEVICE FUNCTION**/ //
 	
 	  function generateRandomDevice(id) {
@@ -107,7 +104,6 @@ angularExampleModule.controller('deviceListController',
 	    			$scope.year, $scope.price);
 	    	if(newDevice!=null){
 		    	$scope.rowCollection.push(newDevice);
-				$scope.displayedCollection = [].concat($scope.rowCollection);
 		        id++;
 		        clearData()
 	    	}
@@ -119,18 +115,15 @@ angularExampleModule.controller('deviceListController',
 	        var index = $scope.rowCollection.indexOf(device);
 	        if (index !== -1) {
 	        	$scope.rowCollection.splice(index, 1);
-	        	$scope.displayedCollection = [].concat($scope.rowCollection);
 	        }
 	    }
 	    
 	  // / ** LOAD DATA FUNCTION **/ //
 	    
-	  
-	    
-		/* $scope.rowCollection = [];
+		$scope.rowCollection = [];
 		 for (id; id < 5; id++) {
 		    $scope.rowCollection.push(generateRandomDevice(id));
-		 }*/
+		 }
 		
 });
 
